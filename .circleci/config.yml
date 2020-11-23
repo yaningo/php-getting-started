@@ -7,6 +7,9 @@ jobs:
     docker:
       - image: circleci/php:7.3.11
     steps:
+      - run:
+          name: SSH Key
+          command: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
       - checkout
       - heroku/deploy-via-git
 workflows:
