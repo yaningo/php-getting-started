@@ -15,7 +15,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "7b:c2:bf:16:79:f9:8a:67:ec:e7:16:01:b8:6e:d5:69"
-      - run: git push -f git@heroku.com:cci-81277.git $BRANCH:master
+      - run: git push -f git@heroku.com:cci-81277.git $BRANCH:main
 workflows:
   welcome:
     # Run the welcome/run job in its own container
