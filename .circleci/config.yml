@@ -6,7 +6,7 @@ jobs:
       - image: circleci/php:7.3.11
     steps:
       - checkout
-      - git push -f git@heroku.com:cci-81277 $CIRCLE_SHA1:master
+      - git push -f git@heroku.com:cci-81277.git $CIRCLE_SHA1:master
 workflows:
   welcome:
     # Run the welcome/run job in its own container
