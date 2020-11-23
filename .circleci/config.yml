@@ -3,10 +3,10 @@ version: 2.1
 jobs:
   deploy:
     docker:
-      - image: circleci/node:12.15-browsers
+      - image: circleci/php:7.3.11
     steps:
       - checkout
-      - git push -f git@heroku.com:cci-81277.git $CIRCLE_SHA1:master
+      - run: git push -f git@heroku.com:cci-81277.git $CIRCLE_SHA1:master
 workflows:
   welcome:
     # Run the welcome/run job in its own container
