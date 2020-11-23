@@ -6,6 +6,12 @@ jobs:
       - image: circleci/php:7.3.11
     steps:
       - checkout
+      - run:
+          name: Creating known_hosts file
+          command: mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+      - run:
+          name: Adding Heroku to known hosts
+          command: ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
       - run: git push -f git@heroku.com:cci-81277.git $CIRCLE_SHA1:master
 workflows:
   welcome:
