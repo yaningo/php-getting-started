@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  heroku: circleci/heroku@1.2.3
 
 jobs:
   deploy:
@@ -8,9 +6,8 @@ jobs:
       - image: circleci/php:7.3.11
     steps:
       - checkout
-      - heroku/deploy-via-git
+      - git push -f git@heroku.com:cci-81277 $CIRCLE_SHA1:master
 workflows:
-  # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
